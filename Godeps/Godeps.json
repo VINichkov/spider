@@ -1,0 +1,87 @@
+{
+	"ImportPath": "spider",
+	"GoVersion": "go1.13",
+	"GodepVersion": "v80",
+	"Packages": [
+		"./"
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/PuerkitoBio/goquery",
+			"Comment": "v1.5.0-4-g3dcf72e",
+			"Rev": "3dcf72e6c17f694381a21592651ca1464ded0e10"
+		},
+		{
+			"ImportPath": "github.com/andybalholm/cascadia",
+			"Comment": "v1.0.0-2-g680b6a5",
+			"Rev": "680b6a57bda4f657485ad44bdea42342ead737bc"
+		},
+		{
+			"ImportPath": "github.com/dovadi/dbconfig",
+			"Rev": "5952221b2cbdfb00b902bcc4340eb2615d4281e3"
+		},
+		{
+			"ImportPath": "github.com/fatih/structs",
+			"Comment": "v1.1.0-1-g878a968",
+			"Rev": "878a968ab22548362a09bdb3322f98b00f470d46"
+		},
+		{
+			"ImportPath": "github.com/jmoiron/sqlx",
+			"Comment": "v1.2.0-23-gd7d9517",
+			"Rev": "d7d95172beb5a538ff08c50a6e98aee6e7c41f40"
+		},
+		{
+			"ImportPath": "github.com/jmoiron/sqlx/reflectx",
+			"Comment": "v1.2.0-23-gd7d9517",
+			"Rev": "d7d95172beb5a538ff08c50a6e98aee6e7c41f40"
+		},
+		{
+			"ImportPath": "github.com/lib/pq",
+			"Comment": "v1.2.0-12-g931b5ae",
+			"Rev": "931b5ae4c24e6810c8c82ab4734904de3df1c3dc"
+		},
+		{
+			"ImportPath": "github.com/lib/pq/oid",
+			"Comment": "v1.2.0-12-g931b5ae",
+			"Rev": "931b5ae4c24e6810c8c82ab4734904de3df1c3dc"
+		},
+		{
+			"ImportPath": "github.com/lib/pq/scram",
+			"Comment": "v1.2.0-12-g931b5ae",
+			"Rev": "931b5ae4c24e6810c8c82ab4734904de3df1c3dc"
+		},
+		{
+			"ImportPath": "github.com/rs/zerolog",
+			"Comment": "v1.15.0-4-g19e454b",
+			"Rev": "19e454b4c729fbb28c123b8d569507202a44c028"
+		},
+		{
+			"ImportPath": "github.com/rs/zerolog/internal/cbor",
+			"Comment": "v1.15.0-4-g19e454b",
+			"Rev": "19e454b4c729fbb28c123b8d569507202a44c028"
+		},
+		{
+			"ImportPath": "github.com/rs/zerolog/internal/json",
+			"Comment": "v1.15.0-4-g19e454b",
+			"Rev": "19e454b4c729fbb28c123b8d569507202a44c028"
+		},
+		{
+			"ImportPath": "github.com/rs/zerolog/log",
+			"Comment": "v1.15.0-4-g19e454b",
+			"Rev": "19e454b4c729fbb28c123b8d569507202a44c028"
+		},
+		{
+			"ImportPath": "golang.org/x/net/html",
+			"Rev": "74dc4d7220e7acc4e100824340f3e66577424772"
+		},
+		{
+			"ImportPath": "golang.org/x/net/html/atom",
+			"Rev": "74dc4d7220e7acc4e100824340f3e66577424772"
+		},
+		{
+			"ImportPath": "gopkg.in/yaml.v2",
+			"Comment": "v2.2.4",
+			"Rev": "f221b8435cfb71e54062f6c6e99e9ade30b124d5"
+		}
+	]
+}

@@ -1,0 +1,13 @@
+.idea
+.gitignore
+log
+Capfile
+Gemfile
+Gemfile.lock
+go_build_spider
+config/deploy/*
+config/deploy.rb
+lib
+key
+
+
