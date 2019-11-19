@@ -2,9 +2,6 @@
 	"ImportPath": "spider",
 	"GoVersion": "go1.13",
 	"GodepVersion": "v80",
-	"Packages": [
-		"./"
-	],
 	"Deps": [
 		{
 			"ImportPath": "github.com/PuerkitoBio/goquery",
