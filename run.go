@@ -1,13 +1,14 @@
 package main
 
 import (
+	"fmt"
 	"github.com/dovadi/dbconfig"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	"spider/crawler"
 	"os"
+	"spider/config"
 	"time"
 )
 
@@ -27,6 +28,7 @@ func main()  {
 	)
 
 	// DB
+	config.LoadEnviroment("config/settings.json")
 	connectionString := dbconfig.PostgresConnectionString("config/settings.json",  "disable")
 
 	log.Info().Msg(connectionString)
@@ -42,8 +44,11 @@ func main()  {
 		log.Info().Msg("Connected to DB!")
 	}
 
-	service := crawler.NewCrawlerHandler(db)
-	service.Start()
+
+	fmt.Println("bucket:", os.Getenv("bucket"))
+	//service := crawler.NewCrawlerHandler(db)
+	//service.Start()
+
 	defer db.Close()
 
 }
