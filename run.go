@@ -9,6 +9,7 @@ import (
 	"github.com/rs/zerolog/log"
 	"os"
 	"spider/config"
+	"spider/crawler"
 	"time"
 )
 
@@ -46,8 +47,8 @@ func main()  {
 
 
 	fmt.Println("bucket:", os.Getenv("bucket"))
-	//service := crawler.NewCrawlerHandler(db)
-	//service.Start()
+	service := crawler.NewCrawlerHandler(db)
+	service.Start()
 
 	defer db.Close()
 
