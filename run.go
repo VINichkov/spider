@@ -29,6 +29,7 @@ func main()  {
 	// DB
 	connectionString := dbconfig.PostgresConnectionString("config/settings.json",  "disable")
 
+	log.Info().Msg(connectionString)
 	db, err := sqlx.Connect("postgres", connectionString)
 
 	if err != nil {
