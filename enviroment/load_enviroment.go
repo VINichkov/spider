@@ -1,4 +1,4 @@
-package main
+package enviroment
 
 import (
 	"github.com/dovadi/dbconfig"
