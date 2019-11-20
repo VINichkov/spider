@@ -1,7 +1,8 @@
-package enviroment
+package environment
 
 import (
 	"github.com/dovadi/dbconfig"
+	"github.com/rs/zerolog/log"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"os"
@@ -56,6 +57,7 @@ func LoadEnviroment(path string) {
 	}
 
 	for k, v := range env {
+		log.Info().Msg("Loaded environment variable: key: "+ k + " : " + v + "; ")
 		os.Setenv(k, v)
 	}
 }

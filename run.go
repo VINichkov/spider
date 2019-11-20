@@ -8,7 +8,7 @@ import (
 	"github.com/rs/zerolog/log"
 	"os"
 	"spider/crawler"
-	"spider/enviroment"
+	"spider/environment"
 	"time"
 )
 
@@ -28,7 +28,7 @@ func main()  {
 	)
 
 	// DB
-	enviroment.LoadEnviroment("config/settings.json")
+	environment.LoadEnviroment("config/settings.json")
 	connectionString := dbconfig.PostgresConnectionString("config/settings.json",  "disable")
 
 	log.Info().Msg(connectionString)
