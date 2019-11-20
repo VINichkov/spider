@@ -45,7 +45,7 @@ func main()  {
 		os.Getenv("MONGO_DATABASE_USER"),
 		db_name)
 
-	log.Info().Msg(connectionString)
+	//log.Info().Msg(connectionString)
 	db, err := sqlx.Connect("postgres", connectionString)
 
 	if err != nil {

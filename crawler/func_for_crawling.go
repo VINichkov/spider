@@ -10,6 +10,7 @@ import (
 	"spider/models/entity/job"
 	"spider/proxy"
 	"spider/source"
+	"strings"
 )
 
 func getMainPage(location entity.Location, job_for_prepare chan entity.JobForPrepare,
@@ -302,7 +303,7 @@ func save_job(jobForSave entity.JobForSave, thread int, rep *Crawler){
 	}
 
 	newJob := job.NewJob(
-		jobForSave.Title,
+		strings.Title(jobForSave.Title),
 		jobForSave.Location.Id,
 		jobForSave.Salary_min,
 		jobForSave.Salary_max,
