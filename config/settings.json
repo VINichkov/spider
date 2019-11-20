@@ -1,4 +1,3 @@
 {
-  "database_file": "config/database.yml",
   "environment"  : "development"
 }
