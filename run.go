@@ -15,7 +15,6 @@ import (
 
 func main()  {
 	// logger
-	zerolog.SetGlobalLevel(zerolog.InfoLevel)
 	zerolog.TimeFieldFormat = zerolog.TimeFormatUnix
 	zerolog.SetGlobalLevel(zerolog.InfoLevel)
 
@@ -29,9 +28,6 @@ func main()  {
 
 	// DB
 	environment.LoadEnviroment("config/settings.json")
-	if os.Getenv("DB_NAME") == ""{
-		log.Info().Msg("Попали")
-	}
 	var db_name string
 	if os.Getenv("DB_NAME")=="" {
 		db_name = fmt.Sprintf("mango_%s", os.Getenv("APPLICATION_ENV"))
@@ -39,7 +35,6 @@ func main()  {
 		db_name = fmt.Sprintf("mango_%s", os.Getenv("DB_NAME"))
 	}
 
-	log.Info().Msg("Прошли")
 	connectionString := fmt.Sprintf("host=localhost password=%s user=%s dbname=%s sslmode=disable",
 		os.Getenv("MONGO_DATABASE_PASSWORD"),
 		os.Getenv("MONGO_DATABASE_USER"),
