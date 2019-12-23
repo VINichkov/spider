@@ -42,7 +42,7 @@ func (source *Indeed)CreateQuery(location entity.Location, page int) string{
 }
 
 func (source *Indeed)NumberOfAds(doc goquery.Document) (int, error) {
-	text :=doc.Find("div.page-entries-info span").Last().Text()
+	text :=doc.Find("div#searchCount").Last().Text()
 	result := strings.Replace(text, ",","", -1)
 	r, _ := regexp.Compile("\\d+")
 	strs := r.FindAllString(result,-1)
