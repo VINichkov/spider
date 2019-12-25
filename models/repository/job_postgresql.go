@@ -77,7 +77,7 @@ func (l *dbJobRepo) Create(job *job.Job)(int, error){
 	timeNow := time.Now()
 	job.CreatedAt = sql.NullTime{timeNow, true}
 	job.UpdatedAt = sql.NullTime{timeNow, true}
-	job.Close = sql.NullTime{timeNow.AddDate(0,0,15), true}
+	job.Close = sql.NullTime{timeNow.AddDate(0,0,30), true}
 	var id int
 	err = stmt.Get(&id, job)
 	if err != nil {
