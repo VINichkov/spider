@@ -22,7 +22,7 @@ type dbCompanyRepo struct {
 
 func (l *dbCompanyRepo) FindCompanyByName(name string)(*entity.CompanyId, error){
 	nameLower := strings.ToLower(name)
-	query := "SELECT id as \"result\" FROM companies WHERE LOWER(name) = $1 or ($1 = ANY(lower(names::text)::text[]));"
+	query := "SELECT id as \"result\" FROM companies WHERE LOWER(name) = LOWER($1) or (LOWER($1) = ANY(lower(names::text)::text[]));"
 	companyId := entity.CompanyId{}
 	err := l.Conn.Get(&companyId, query, nameLower)
 	resEqualErrors := models.EqualErrors(err, models.ErrNotFound)
