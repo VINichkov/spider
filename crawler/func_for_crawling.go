@@ -54,7 +54,7 @@ Exit:
 			}
 			//log.Info().Msg(strconv.Itoa(numberOfAds))
 			if numberOfAds == 0 {
-				logging("getMainPage", thread,"Страница пустая !!!!!")
+				logging("getMainPage", thread,"Страница пустая !!!!! " + url)
 				break Exit
 			}
 

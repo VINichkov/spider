@@ -17,6 +17,7 @@ func how_long(text string) bool{
 	if text == "Just posted" || text == "" || res {
 		result =  true
 	} else {
+		logging("how_long:", 0, "Возрост вакансии: "+text)
 		result =  false
 	}
 	return result
