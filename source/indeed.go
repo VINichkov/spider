@@ -37,12 +37,12 @@ func (source *Indeed)Name() string{
 func (source *Indeed)CreateQuery(location entity.Location, page int) string{
 	return fmt.Sprintf(
 		"%sl=%s&sort=%s&start=%d&q=",
-		source.Url,  location.Suburb, source.ST, page * 10,
+		source.Url,  location.Suburb, source.ST, (page - 1) * 10,
 	)
 }
 
 func (source *Indeed)NumberOfAds(doc goquery.Document) (int, error) {
-	text :=doc.Find("div#searchCount").Last().Text()
+	text :=doc.Find("div#searchCountPages").Text()
 	result := strings.Replace(text, ",","", -1)
 	r, _ := regexp.Compile("\\d+")
 	strs := r.FindAllString(result,-1)
