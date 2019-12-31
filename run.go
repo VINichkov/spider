@@ -29,17 +29,21 @@ func main()  {
 	// DB
 	environment.LoadEnviroment("config/settings.json")
 	var db_name string
-	if os.Getenv("DB_NAME")=="" {
-		db_name = fmt.Sprintf("mango_%s", os.Getenv("APPLICATION_ENV"))
+	var connectionString string
+	if os.Getenv("DATABASE_URL") != "" {
+		connectionString = os.Getenv("DATABASE_URL")
 	} else {
-		db_name = fmt.Sprintf("mango_%s", os.Getenv("DB_NAME"))
+		if os.Getenv("DB_NAME") == "" {
+			db_name = fmt.Sprintf("mango_%s", os.Getenv("APPLICATION_ENV"))
+		} else {
+			db_name = fmt.Sprintf("mango_%s", os.Getenv("DB_NAME"))
+		}
+
+		connectionString = fmt.Sprintf("host=localhost password=%s user=%s dbname=%s sslmode=disable",
+			os.Getenv("MONGO_DATABASE_PASSWORD"),
+			os.Getenv("MONGO_DATABASE_USER"),
+			db_name)
 	}
-
-	connectionString := fmt.Sprintf("host=localhost password=%s user=%s dbname=%s sslmode=disable",
-		os.Getenv("MONGO_DATABASE_PASSWORD"),
-		os.Getenv("MONGO_DATABASE_USER"),
-		db_name)
-
 	//log.Info().Msg(connectionString)
 	db, err := sqlx.Connect("postgres", connectionString)
 
@@ -52,6 +56,7 @@ func main()  {
 	}else{
 		log.Info().Msg("Connected to DB!")
 	}
+	log.Info().Msg(os.Getenv("DATABASE_URL"))
 
 
 	service := crawler.NewCrawlerHandler(db)
