@@ -43,10 +43,12 @@ func (source *Indeed)CreateQuery(location entity.Location, page int) string{
 
 func (source *Indeed)NumberOfAds(doc goquery.Document) (int, error) {
 	text :=doc.Find("div#searchCountPages").Text()
+	log.Info().Msg(text)
 	result := strings.Replace(text, ",","", -1)
 	r, _ := regexp.Compile("\\d+")
 	strs := r.FindAllString(result,-1)
 	if len(strs)>0{
+		log.Info().Msg(strs[len(strs)-1])
 		i , err := strconv.Atoi(strs[len(strs)-1])
 		if err != nil {
 			return 0, err
