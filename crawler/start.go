@@ -14,9 +14,9 @@ import (
 
 const MaxPage int = 10
 
-const GetListC = 4
+const GetListC = 1
 const PrepareJobC = 1
-const GetJobC = 14
+const GetJobC = 1
 const SaveJobC = 1
 
 var wm sync.WaitGroup
@@ -138,10 +138,10 @@ func (rep *Crawler)compareWithIndex(arg *entity.CompareWithIndexIn) *entity.Comp
 	result := entity.NewCompareResult()
 
 	// Компания в блок листе
-	if strings.EqualFold(arg.CompanyName, "Jora Local"){
+	/*if strings.EqualFold(arg.CompanyName, "Jora Local"){
 		result.ToBlockList()
 		return result
-	}
+	}*/
 
 	//Пробуем найти компанию
 	company, err := rep.company.FindCompanyByName(arg.CompanyName)
