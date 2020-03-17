@@ -30,9 +30,9 @@ func (l *dbClientRepo)FindByCompanyIdFirst(company_id int) (int, error){
 
 func (l *dbClientRepo)Create(client *client.SimulationClient)(int, error){
 	stmt, err := l.Conn.PrepareNamed(`INSERT INTO "clients" ("firstname", "lastname", "email", "location_id", 
-				"created_at", "updated_at", "confirmed_at", "send_email", "company_id", "character") 
+				"created_at", "updated_at", "confirmed_at", "send_email", "alert", "company_id", "character") 
 				VALUES (:firstname, :lastname, :email, :location_id, :created_at, :updated_at, :confirmed_at, :send_email,
-				 :company_id, :character) RETURNING "id"`)
+				 :alert, :company_id, :character) RETURNING "id"`)
 	if err != nil {
 		return 0, err
 	}

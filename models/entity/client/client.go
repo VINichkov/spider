@@ -18,6 +18,7 @@ type SimulationClient struct {
 	UpdatedAt sql.NullTime `db:"updated_at"`
 	ConfirmedAt sql.NullTime `db:"confirmed_at"`
 	SendEmail sql.NullBool `db:"send_email"`
+	Alert sql.NullBool `db:"alert"`
 	CompanyId sql.NullInt32 `db:"company_id"`
 	Character string `db:"character"`
 }
@@ -33,6 +34,7 @@ func NewSimulationClientForClawler(company_name string, company_id int, location
 		UpdatedAt:   sql.NullTime{time.Now(), false},
 		ConfirmedAt: sql.NullTime{time.Now(), false},
 		SendEmail:   sql.NullBool{false, true},
+		Alert:   sql.NullBool{false, true},
 		CompanyId:   sql.NullInt32{int32(company_id), true},
 		Character:   enum.Employer(),
 	}
@@ -73,6 +75,7 @@ func (client *SimulationClient)String()string{
 	if client.UpdatedAt.Valid {str += "UpdatedAt: " +  client.UpdatedAt.Time.String() + "\n"} else {str +="UpdatedAt: null\n"}
 	if client.ConfirmedAt.Valid {str += "ConfirmedAt: " +  client.ConfirmedAt.Time.String() + "\n"} else {str +="ConfirmedAt: null\n"}
 	if client.SendEmail.Valid {str += "SendEmail: " +  strconv.FormatBool(client.SendEmail.Bool) + "\n"} else {str +="SendEmail: null\n"}
+	if client.Alert.Valid {str += "Alert: " +  strconv.FormatBool(client.Alert.Bool) + "\n"} else {str +="Alert: null\n"}
 	if client.CompanyId.Valid {str += "CompanyId: " +  strconv.Itoa(int(client.CompanyId.Int32)) + "\n"} else {str +="CompanyId: null\n"}
 	return str
 }
