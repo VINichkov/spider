@@ -25,9 +25,9 @@ func Connect(arg string, mode bool) (*http.Response, error) {
 	// Иначе перулаем урл на новый сайт
 
 	if mode {
-		uri = "https://cryptic-dusk-29836.herokuapp.com/open?url=" + url.QueryEscape(arg)
+		uri = "https://frozen-beach-74886.herokuapp.com/open?url=" + url.QueryEscape(arg)
 	} else  {
-		uri = "https://cryptic-dusk-29836.herokuapp.com/redirect?url=" + url.QueryEscape(arg)
+		uri = "https://frozen-beach-74886.herokuapp.com/redirect?url=" + url.QueryEscape(arg)
 	}
 	//Локальный прокси
 	/*if mode {
